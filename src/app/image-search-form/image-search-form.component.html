@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Image Search</h1>
+    <p style="color: red;">{{errorMessage}}</p>
+    <form (submit)="searchFormSubmit()">
+        <label for="searchTerm">Search Term</label>
+        <input [(ngModel)]="searchTerm" class="u-full-width" type="text" id="searchTerm" name="searchTerm">
+        <button type="submit">Search</button>
+    </form>
+    <img *ngIf="loadingImage" id="loadingImage" src="https://media.giphy.com/media/3y0oCOkdKKRi0/giphy.gif">
+    <section class="images">
+        <!-- images loaded dynamically here -->
+        <div *ngFor="let image of images">
+            <img [src]="image">
+        </div>
+    </section>
+</div>
